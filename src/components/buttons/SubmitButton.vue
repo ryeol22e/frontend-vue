@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name : submit-button,
+        name : 'SubmitButton',
         data : function() {
             return {
                 buttonName : '확인'
