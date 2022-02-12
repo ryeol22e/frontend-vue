@@ -1,5 +1,5 @@
 <template>
-    <h1>상품리스트</h1>
+    <h1>아우터리스트</h1>
 </template>
 
 <script>

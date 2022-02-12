@@ -1,9 +1,9 @@
 <template>
   <b-nav tabs>
-        <b-nav-item @click="clickTap" active>Active</b-nav-item>
-        <b-nav-item @click="clickTap"><router-link to="/display/products">Link</router-link></b-nav-item>
-        <b-nav-item @click="clickTap">Another Link</b-nav-item>
-        <b-nav-item @click="clickTap">Disabled</b-nav-item>
+        <b-nav-item @click="clickTap" :data-link="'/display/products/outer'">외투</b-nav-item>
+        <b-nav-item @click="clickTap" :data-link="'/display/products/top'">상의</b-nav-item>
+        <b-nav-item @click="clickTap" :data-link="'/display/products/buttom'">하의</b-nav-item>
+        <b-nav-item @click="clickTap" :data-link="'/display/products/acc'">악세사리</b-nav-item>
     </b-nav>
 </template>
 
@@ -20,11 +20,14 @@ export default {
     },
     methods : {
         clickTap : function(e) {
-            console.log(e.target.parentNode.parentNode.querySelectorAll('li'));
+            const url = e.target.parentNode.dataset.link.toString();
+            // console.log(e.target.parentNode.parentNode.querySelectorAll('li'));
             e.target.parentNode.parentNode.querySelectorAll('a').forEach(function(item){
                 item.classList.remove('active');
             });
             e.target.classList.add('active');
+            this.$router.push(url).catch(()=>{});
+            
         }
     }
 }
