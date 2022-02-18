@@ -1,47 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import main from './modules/main.js';
+import display from './modules/display.js';
+import product from './modules/product.js';
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Main',
-    component: ()=> import('../views/main/Main.vue')
-  },
-  {
-    path : '/error',
-    name : 'NotFound',
-    component : ()=> import('../views/common/NotFound.vue')
-  },
-  // {
-  //   path : '/display',
-  //   redirect : {name : 'NotFound'},
-  //   children : [
-  //     {
-  //       path : 'products',
-  //       name : 'ProductList',
-  //       component : ()=> import('../views/display/ProductList.vue')
-  //     }
-  //   ]
-  // },
-  {
-    path : '/display/products/outer',
-    name : 'OuterList',
-    component : ()=> import('../views/display/ProductList/OuterList.vue')
-  },
-  {
-    path : '/display/products/top',
-    name : 'TopList',
-    component : ()=> import('../views/display/ProductList/TopList.vue')
-  },
-  {
-    path : '/product/detail/',
-    name : 'ProductDetail',
-    component : ()=> import('../views/product/ProductDetail.vue')
-  }
-  
-]
+  ...main,
+  ...display,
+  ...product,
+];
 
 const router = new VueRouter({
   mode: 'history',
@@ -49,10 +18,18 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next)=> {
+  console.log(to.name.concat(' link ready.'));
+  // 로그인 인증로직
+  if(true) {
+    next();
+  }
+});
+
 router.afterEach((to, from)=>{
   const title = to.meta.title;
   
-  Vue.nextTick(()=>{
+  Vue.nextTick(()=> {
     document.title = title==undefined ? 'shopping mall' : title;
   });
 });

@@ -2,13 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import axios from 'axios'
+import { BootstrapVue, IconsPlugin, BCarousel } from 'bootstrap-vue'
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false;
+// vue3>> const vue = createApp(vue); >> vue.config.globalProperties.$axios = axios;
+Vue.prototype.$axios = axios;
 Vue.use(BootstrapVue).use(IconsPlugin);
+Vue.component('b-carousel', BCarousel);
 
 new Vue({
   router,
