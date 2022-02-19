@@ -15,6 +15,7 @@
     },
     created() {
       
+      console.log('app.vue into stage');
     }
   }
 </script>
