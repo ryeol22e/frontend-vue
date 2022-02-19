@@ -19,7 +19,7 @@ export default {
         }
     },
     created : function() {
-        
+        console.log('header.vue by dev');
     },
     methods : {
         clickTap : function(e) {
