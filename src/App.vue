@@ -14,9 +14,11 @@
       Header,
     },
     created() {
-      console.log('app.vue');
-      console.log('app.vue into stage');
-    }
+      
+    },
+    methods : {
+
+    },
   }
 </script>
 
