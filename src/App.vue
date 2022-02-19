@@ -14,8 +14,11 @@
       Header,
     },
     created() {
-      console.log('app.vue');
-    }
+      
+    },
+    methods : {
+
+    },
   }
 </script>
 
