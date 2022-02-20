@@ -13,16 +13,16 @@
 <script>
 	export default {
 		name : 'Header',
-		data : function() {
+		data() {
 			return {
 
 			}
 		},
-		created : function() {
+		created() {
             
 		},
 		methods : {
-			clickTap : function(e) {
+			clickTap(e) {
 				const url = e.target.parentNode.dataset.link.toString();
 				// console.log(e.target.parentNode.parentNode.querySelectorAll('li'));
 				e.target.parentNode.parentNode.querySelectorAll('a').forEach(function(item){
