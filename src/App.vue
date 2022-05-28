@@ -17,7 +17,9 @@
       console.log('hello vue');
     },
     methods : {
-
+      clickEvnet() {
+        
+      }
     },
   }
 </script>
