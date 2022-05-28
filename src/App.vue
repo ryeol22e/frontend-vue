@@ -14,7 +14,7 @@
       Header,
     },
     created() {
-      
+      console.log('hello vue');
     },
     methods : {
 
