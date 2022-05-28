@@ -16,6 +16,7 @@
     created() {
       console.log('hello vue');
       console.log('dev');
+      console.log('stage');
     },
     methods : {
       clickEvnet() {
